@@ -18,7 +18,7 @@ import { TranslationService } from '../../services/translation.service';
                     <div class="cta-buttons">
                         <a routerLink="/projects" class="btn btn-primary"><i class="fas fa-briefcase"></i> {{ t().home.viewProjects }}</a>
                         <a routerLink="/contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> {{ t().home.getInTouch }}</a>
-                        <a href="assets/pdf/CV.pdf" download class="btn btn-download"><i class="fas fa-download"></i> {{ t().home.downloadResume }}</a>
+                        <a href="assets/Files/CV.pdf" download class="btn btn-download"><i class="fas fa-download"></i> {{ t().home.downloadResume }}</a>
                     </div>
                 </div>
                 <div class="hero-image">

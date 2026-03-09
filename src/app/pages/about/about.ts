@@ -32,7 +32,7 @@ import { TranslationService } from '../../services/translation.service';
                 <div class="resume-content">
                     <h2>{{ t().about.resumeTitle }}</h2>
                     <p>{{ t().about.resumeDesc }}</p>
-                    <a href="assets/pdf/CV.pdf" download class="btn btn-primary">
+                    <a href="assets/Files/CV.pdf" download class="btn btn-primary">
                         <i class="fas fa-download"></i> {{ t().about.downloadBtn }}
                     </a>
                 </div>
