@@ -1,23 +1,25 @@
 import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
+import { InViewDirective } from '../../directives/in-view.directive';
 
 @Component({
   selector: 'app-about',
+  imports: [InViewDirective],
   template: `
     <div class="page-container">
-        <section id="about" class="fade-in visible">
+        <section id="about" appInView>
             <div class="container">
                 <div class="section-header">
                     <h2>{{ t().about.title }}</h2>
                     <p>{{ t().about.subtitle }}</p>
                 </div>
                 <div class="about-content">
-                    <div class="about-text fade-item visible">
+                    <div class="about-text" appInView>
                         <p [innerHTML]="t().about.p1"></p>
                         <p>{{ t().about.p2 }}</p>
                         <p>{{ t().about.p3 }}</p>
                         
-                        <div class="education-card fade-item visible">
+                        <div class="education-card" appInView>
                             <h3><i class="fas fa-graduation-cap"></i> {{ t().about.education }}</h3>
                             <div class="degree">{{ t().about.degree }}</div>
                             <span class="duration">{{ t().about.duration }}</span>
@@ -27,7 +29,7 @@ import { TranslationService } from '../../services/translation.service';
             </div>
         </section>
 
-        <section class="resume-section fade-in visible">
+        <section class="resume-section" appInView>
             <div class="container">
                 <div class="resume-content">
                     <h2>{{ t().about.resumeTitle }}</h2>

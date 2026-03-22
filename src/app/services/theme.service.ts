@@ -23,7 +23,9 @@ export class ThemeService {
         const theme = this.currentTheme();
         
         // Remove all theme classes
-        document.body.classList.remove('light-mode', 'blue-mode');
+        document.body.classList.remove(
+          ...this.themes.filter(t => t !== 'jigar').map(t => `${t}-mode`)
+        );
         
         // Add current theme class if not jigar (default)
         if (theme !== 'jigar') {

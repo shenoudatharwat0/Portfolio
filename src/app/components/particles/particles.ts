@@ -36,7 +36,7 @@ export class ParticlesComponent {
 
   particlesOptions = computed(() => {
     const theme = this.theme.currentTheme();
-    let color = "#ffae00"; // Default Jigar (Yellow)
+    let color = "#4f46e5"; // Default Jigar (Indigo Accent)
 
     if (theme === 'blue') {
       color = "#3282b8"; // Blue

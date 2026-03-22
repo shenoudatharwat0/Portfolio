@@ -12,19 +12,19 @@ export const translations = {
     home: {
       name: "Shenouda Tharwat",
       roles: [
-        "Full Stack .NET Developer",
-        "Backend Specialist",
-        "Network Administrator",
+        "Full-Stack .NET Engineer",
+        "Backend Systems Specialist",
+        "Network Infrastructure Administrator",
       ],
       description:
-        "Building scalable, secure, and high-performance applications with C# and SQL. Bridging the gap between software logic and infrastructure performance.",
+        "I design and deliver secure, scalable, and high-performance solutions with C#, .NET, and SQL Server, combining software engineering excellence with infrastructure-aware architecture.",
       viewProjects: "View Projects",
       getInTouch: "Get In Touch",
       downloadResume: "Download Resume",
     },
     about: {
       title: "About Me",
-      subtitle: "Transforming Ideas Into Scalable Solutions",
+      subtitle: "Engineering Reliable Solutions for Real Business Needs",
       p1: "<strong>Results-oriented Full Stack .NET Developer</strong> with a strong foundation in network engineering and database management. I specialize in building scalable, multi-tenant architectures using C# and SQL Server.",
       p2: "My unique background in networking allows me to bridge the gap between software logic and infrastructure performance, ensuring applications are not only functional but optimized for security, efficiency, and scalability.",
       p3: "Currently focused on developing complex management platforms with robust backend logic, I bring a perspective that combines software development with infrastructure optimization to deliver enterprise-grade solutions.",
@@ -53,7 +53,7 @@ export const translations = {
     },
     projects: {
       title: "Selected Works",
-      subtitle: "Building Solutions That Make An Impact",
+      subtitle: "Delivering Production-Ready Solutions with Measurable Impact",
       portfolio: "My Portfolio",
       filters: {
         all: "All Projects",
@@ -116,7 +116,7 @@ export const translations = {
     },
     services: {
       title: "Services Offered",
-      subtitle: "How I Can Help Your Business",
+      subtitle: "Professional Services to Build and Scale Your Product",
       list: [
         {
           icon: "fas fa-code",
@@ -152,11 +152,11 @@ export const translations = {
     },
     contact: {
       title: "Let's Connect",
-      subtitle: "Ready to collaborate on your next project?",
+      subtitle: "Open to professional opportunities and collaborations",
       getInTouch: "Get In Touch",
       desc: "I'm currently open to new opportunities and collaborations. Whether you have a question, want to start a project together, or just want to connect, feel free to reach out!",
       email: "Email",
-      whatsapp: "Whatsapp",
+      whatsapp: "WhatsApp",
       connect: "Connect with me",
       viewGithub: "View my projects",
       form: {
@@ -191,16 +191,16 @@ export const translations = {
     },
     home: {
       name: "شنودة ثروت",
-      roles: ["مطور Full Stack .NET", "متخصص Backend", "مسئول الشبكات"],
+      roles: ["مهندس .NET Full-Stack", "متخصص أنظمة Backend", "مسؤول البنية التحتية للشبكات"],
       description:
-        "بناء تطبيقات قابلة للتوسع وآمنة وعالية الأداء باستخدام C# و SQL. سد الفجوة بين منطق البرمجيات وأداء البنية التحتية بخبرة فريدة في التطوير والشبكات.",
+        "أصمم وأطوّر حلولاً آمنة وقابلة للتوسع وعالية الأداء باستخدام C# و .NET و SQL Server، مع دمج خبرة هندسة البرمجيات بفهم عميق للبنية التحتية.",
       viewProjects: "عرض المشاريع",
       getInTouch: "تواصل معي",
       downloadResume: "تحميل السيرة الذاتية",
     },
     about: {
       title: "عنّي",
-      subtitle: "تحويل الأفكار إلى حلول برمجية قابلة للتطوير",
+      subtitle: "هندسة حلول موثوقة تلبي احتياجات الأعمال الفعلية",
       p1: "<strong>مطور Full Stack .NET موجه بالنتائج</strong> مع أساس قوي في هندسة الشبكات وإدارة قواعد البيانات. أنا متخصص في بناء معماريات قابلة للتوسع ومتعددة المستأجرين (Multi-tenant) باستخدام C# و SQL Server.",
       p2: "تسمح لي خلفيتي الفريدة في الشبكات بسد الفجوة بين منطق البرمجيات وأداء البنية التحتية، مما يضمن أن التطبيقات ليست وظيفية فحسب، بل محسنة للأمان والكفاءة وقابلية التوسع.",
       p3: "أركز حاليًا على تطوير منصات إدارة معقدة ذات منطق خلفي (Backend) قوي، وأقدم منظورًا يجمع بين تطوير البرمجيات وتحسين البنية التحتية لتقديم حلول بمستوى المؤسسات.",
@@ -229,7 +229,7 @@ export const translations = {
     },
     projects: {
       title: "مشاريع مختارة",
-      subtitle: "بناء حلول ذات تأثير",
+      subtitle: "تقديم حلول جاهزة للإنتاج بأثر قابل للقياس",
       portfolio: "أعمالي",
       filters: {
         all: "كل المشاريع",
@@ -292,7 +292,7 @@ export const translations = {
     },
     services: {
       title: "الخدمات المقدمة",
-      subtitle: "كيف يمكنني مساعدة عملك",
+      subtitle: "خدمات احترافية لبناء منتجك وتطويره بثقة",
       list: [
         {
           icon: "fas fa-code",
@@ -328,7 +328,7 @@ export const translations = {
     },
     contact: {
       title: "لنبدأ العمل معاً",
-      subtitle: "جاهز للتعاون في مشروعك القادم؟",
+      subtitle: "متاح للفرص المهنية والتعاون في المشاريع",
       getInTouch: "ابقى على تواصل",
       desc: "أنا حاليًا منفتح لفرص جديدة وتعاونات. سواء كان لديك سؤال، أو تريد بدء مشروع معًا، أو مجرد التواصل، لا تتردد في مراسلتي!",
       email: "البريد الإلكتروني",

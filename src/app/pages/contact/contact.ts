@@ -2,13 +2,14 @@ import { Component, inject, signal } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { InViewDirective } from '../../directives/in-view.directive';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, InViewDirective],
   template: `
     <div class="page-container">
-        <section id="contact" class="fade-in visible">
+        <section id="contact" appInView>
             <div class="container">
                 <div class="section-header">
                     <h2>{{ t().contact.title }}</h2>
@@ -20,27 +21,27 @@ import emailjs from '@emailjs/browser';
                         <p class="contact-text">{{ t().contact.desc }}</p>
                         
                         <div class="contact-methods">
-                            <a href="mailto:Shenoudatharwat0@gmail.com" class="contact-card fade-item visible">
+                            <a href="mailto:Shenoudatharwat0@gmail.com" class="contact-card" appInView>
                                 <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                                 <div>
                                     <h3>{{ t().contact.email }}</h3>
                                     <p>Shenoudatharwat0@gmail.com</p>
                                 </div>
                             </a>
-                            <a href="https://wa.me/201031660540" class="contact-card fade-item visible">
+                            <a href="https://wa.me/201031660540" target="_blank" rel="noopener noreferrer" class="contact-card" appInView>
                                 <div class="contact-icon"><i class="fas fa-phone"></i></div>
                                 <div>
                                     <h3>{{ t().contact.whatsapp }}</h3>
                                 </div>
                             </a>
-                            <a href="https://www.linkedin.com/in/shenouda-tharwat-352146389" target="_blank" class="contact-card fade-item visible">
+                            <a href="https://www.linkedin.com/in/shenouda-tharwat-352146389" target="_blank" rel="noopener noreferrer" class="contact-card" appInView>
                                 <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
                                 <div>
                                     <h3>LinkedIn</h3>
                                     <p>{{ t().contact.connect }}</p>
                                 </div>
                             </a>
-                            <a href="https://github.com/shenoudatharwat0" target="_blank" class="contact-card fade-item visible">
+                            <a href="https://github.com/shenoudatharwat0" target="_blank" rel="noopener noreferrer" class="contact-card" appInView>
                                 <div class="contact-icon"><i class="fab fa-github"></i></div>
                                 <div>
                                     <h3>GitHub</h3>
@@ -49,7 +50,7 @@ import emailjs from '@emailjs/browser';
                             </a>
                         </div>
                     </div>
-                    <div class="contact-form fade-item visible">
+                    <div class="contact-form" appInView>
                         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
                                 <label for="name">{{ t().contact.form.name }}</label>
@@ -74,9 +75,11 @@ import emailjs from '@emailjs/browser';
                                 </div>
                             }
 
-                            <button type="submit" class="submit-btn" [disabled]="contactForm.invalid || isSubmitting()">
+                            <button type="submit" class="submit-btn" [disabled]="contactForm.invalid || isSubmitting() || isSuccess()">
                                 @if (isSubmitting()) {
                                     <i class="fas fa-spinner fa-spin"></i> Sending...
+                                } @else if (isSuccess()) {
+                                    <i class="fas fa-check-circle" style="color: #4ade80;"></i> Sent!
                                 } @else {
                                     <i class="fas fa-paper-plane"></i> {{ t().contact.form.send }}
                                 }

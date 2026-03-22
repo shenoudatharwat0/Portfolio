@@ -17,7 +17,7 @@ interface ChatMessage {
   template: `
     <div class="chat-widget-container" [class.open]="isOpen()" [class.light-mode]="!isDarkMode()">
       <!-- Chat Button -->
-      <button class="chat-toggle-btn" (click)="toggleChat()" *ngIf="!isOpen()">
+      <button class="chat-toggle-btn" (click)="toggleChat()" *ngIf="!isOpen()" aria-label="Open AI assistant">
         <i class="fas fa-comment-dots"></i>
       </button>
 
@@ -50,6 +50,14 @@ interface ChatMessage {
               Hello! I am the AI assistant for Shenouda Tharwat. How can I help you today?
             </div>
           </div>
+
+          @if (!messages().length) {
+            <div class="quick-prompts">
+              <button type="button" class="prompt-chip" (click)="usePrompt('What technologies does Shenouda specialize in?')">Tech Stack</button>
+              <button type="button" class="prompt-chip" (click)="usePrompt('Tell me about Shenouda projects.')">Projects</button>
+              <button type="button" class="prompt-chip" (click)="usePrompt('How can I contact Shenouda?')">Contact</button>
+            </div>
+          }
           
           @for (msg of messages(); track $index; let last = $last) {
             <div class="message" [class]="msg.role" [class.generating]="isGenerating() && last && msg.role === 'model'">
@@ -64,14 +72,15 @@ interface ChatMessage {
         </div>
 
         <div class="chat-input-area">
-          <input 
+          <input
             type="text" 
             [(ngModel)]="currentInput" 
             (keyup.enter)="sendMessage()"
             placeholder="Ask a question..."
             [disabled]="isGenerating()"
+            aria-label="Message AI assistant"
           >
-          <button (click)="sendMessage()" [disabled]="!currentInput.trim() || isGenerating()">
+          <button (click)="sendMessage()" [disabled]="!currentInput.trim() || isGenerating()" aria-label="Send message">
             <i class="fas fa-paper-plane"></i>
           </button>
         </div>
@@ -146,12 +155,18 @@ export class ChatWidgetComponent implements AfterViewChecked {
       this.messages.update(msgs => {
         const newMsgs = [...msgs];
         const lastMsg = newMsgs[newMsgs.length - 1];
-        lastMsg.text = "Sorry, I encountered an error connecting to the AI. Please try again later.";
+        lastMsg.text = "I can still help with portfolio information. Please try your question again.";
         lastMsg.isThinking = false;
         return newMsgs;
       });
     } finally {
       this.isGenerating.set(false);
     }
+  }
+
+  usePrompt(prompt: string) {
+    if (this.isGenerating()) return;
+    this.currentInput = prompt;
+    this.sendMessage();
   }
 }

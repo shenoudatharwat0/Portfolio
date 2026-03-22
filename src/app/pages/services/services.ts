@@ -1,11 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
+import { InViewDirective } from '../../directives/in-view.directive';
 
 @Component({
   selector: 'app-services',
+  imports: [InViewDirective],
   template: `
     <div class="page-container">
-        <section id="services" class="fade-in visible">
+        <section id="services" appInView>
             <div class="container">
                 <div class="section-header">
                     <h2>{{ t().services.title }}</h2>
@@ -13,7 +15,7 @@ import { TranslationService } from '../../services/translation.service';
                 </div>
                 <div class="services-grid">
                     @for (service of t().services.list; track service.title) {
-                    <div class="service-card fade-item visible">
+                    <div class="service-card" appInView>
                         <div class="service-icon">
                             <i [class]="service.icon"></i>
                         </div>

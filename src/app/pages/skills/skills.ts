@@ -1,11 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
+import { InViewDirective } from '../../directives/in-view.directive';
 
 @Component({
   selector: 'app-skills',
+  imports: [InViewDirective],
   template: `
     <div class="page-container">
-        <section id="skills" class="fade-in visible">
+        <section id="skills" appInView>
             <div class="container">
                 <div class="section-header">
                     <h2>{{ t().skills.title }}</h2>
@@ -21,7 +23,7 @@ import { TranslationService } from '../../services/translation.service';
                     </div>
                     <div class="skills-grid">
                         @if (activeFilter() === 'all' || activeFilter() === 'backend') {
-                        <div class="skill-category fade-item visible">
+                        <div class="skill-category" appInView>
                             <h3><i class="fas fa-server"></i> {{ t().skills.categories.backend }}</h3>
                             <div class="skill-tags">
                                 <span class="skill-tag"><i class="fab fa-microsoft"></i> C#</span>
@@ -36,7 +38,7 @@ import { TranslationService } from '../../services/translation.service';
                         </div>
                         }
                         @if (activeFilter() === 'all' || activeFilter() === 'frontend') {
-                        <div class="skill-category fade-item visible">
+                        <div class="skill-category" appInView>
                             <h3><i class="fas fa-laptop-code"></i> {{ t().skills.categories.frontend }}</h3>
                             <div class="skill-tags">
                                 <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
@@ -49,7 +51,7 @@ import { TranslationService } from '../../services/translation.service';
                         </div>
                         }
                         @if (activeFilter() === 'all' || activeFilter() === 'database') {
-                        <div class="skill-category fade-item visible">
+                        <div class="skill-category" appInView>
                             <h3><i class="fas fa-database"></i> {{ t().skills.categories.database }}</h3>
                             <div class="skill-tags">
                                 <span class="skill-tag"><i class="fas fa-database"></i> Microsoft SQL Server</span>
@@ -62,7 +64,7 @@ import { TranslationService } from '../../services/translation.service';
                         </div>
                         }
                         @if (activeFilter() === 'all' || activeFilter() === 'soft') {
-                        <div class="skill-category fade-item visible">
+                        <div class="skill-category" appInView>
                             <h3><i class="fas fa-heart"></i> {{ t().skills.categories.soft }}</h3>
                             <div class="skill-tags">
                                 <span class="skill-tag"><i class="fas fa-brain"></i> Problem-Solving</span>

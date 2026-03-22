@@ -1,10 +1,11 @@
 import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
+import { TiltDirective } from '../../directives/tilt.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, TiltDirective],
   template: `
     <section id="home" class="hero">
         <div class="container">
@@ -22,8 +23,10 @@ import { TranslationService } from '../../services/translation.service';
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="profile-container">
-                        <img src="assets/images/profile/shenouda.png" alt="Shenouda Tharwat" referrerPolicy="no-referrer" (error)="handleImageError($event)">
+                    <div [appTilt]="20" style="padding: 30px; border-radius: 50%; display: inline-block;">
+                        <div class="profile-container">
+                            <img src="assets/images/profile/shenouda.png" alt="Shenouda Tharwat"  (error)="handleImageError($event)">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,7 +80,23 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   handleImageError(event: Event) {
     const imgElement = event.target as HTMLImageElement;
-    // Fallback to avatar if local image is missing
-    imgElement.src = "https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Prescription02&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=PastelBlue&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light";
+    const placeholderSvg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0f172a" />
+            <stop offset="100%" stop-color="#1e293b" />
+          </linearGradient>
+        </defs>
+        <rect width="600" height="600" fill="url(#bg)" />
+        <circle cx="300" cy="230" r="90" fill="#334155" />
+        <rect x="170" y="340" width="260" height="160" rx="80" fill="#334155" />
+        <text x="50%" y="90%" dominant-baseline="middle" text-anchor="middle"
+          fill="#e2e8f0" font-size="28" font-family="Segoe UI, Arial, sans-serif">
+          Shenouda Tharwat
+        </text>
+      </svg>
+    `.trim();
+    imgElement.src = `data:image/svg+xml;utf8,${encodeURIComponent(placeholderSvg)}`;
   }
 }
